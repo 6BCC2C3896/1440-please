@@ -1,0 +1,66 @@
+:root {
+  color-scheme: light dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --surface: color-mix(in srgb, CanvasText 4%, Canvas);
+  --surface-strong: color-mix(in srgb, CanvasText 7%, Canvas);
+  --border: color-mix(in srgb, CanvasText 12%, transparent);
+  --muted: color-mix(in srgb, CanvasText 57%, transparent);
+  --subtle: color-mix(in srgb, CanvasText 39%, transparent);
+  --accent: #c2410c;
+  --accent-hover: #9a3412;
+  --accent-ink: #ffffff;
+  --stream: #15803d;
+  --danger: #b91c1c;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #fb923c;
+    --accent-hover: #fdba74;
+    --accent-ink: #1c0a02;
+    --stream: #4ade80;
+    --danger: #fb7185;
+  }
+}
+* { box-sizing: border-box; }
+html, body { border-radius: 16px; overflow: clip; }
+body { margin: 0; min-width: 304px; background: Canvas; color: CanvasText; }
+main { padding: 15px; }
+
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 38px; }
+.brand { display: flex; align-items: center; gap: 9px; min-width: 0; flex: 1 1 auto; }
+.brandMark { width: 9px; height: 9px; flex: 0 0 9px; border-radius: 999px; background: var(--accent); }
+.brandCopy { min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.brandCopy strong { font-size: 14px; line-height: 1.15; font-weight: 720; letter-spacing: .015em; font-variant-numeric: tabular-nums; }
+.brandCopy span { max-width: 182px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); font-size: 9.5px; line-height: 1.35; font-weight: 520; }
+.activity { display: grid; grid-template-columns: 7px 58px; align-items: center; justify-content: end; column-gap: 6px; width: 71px; flex: 0 0 71px; min-width: 71px; font-size: 10px; font-weight: 650; letter-spacing: .01em; color: var(--muted); }
+.activity i { width: 7px; height: 7px; border-radius: 999px; background: currentColor; opacity: .72; transition: opacity .15s ease, transform .15s ease; }
+.activity span { display: block; width: 58px; overflow: hidden; white-space: nowrap; text-align: left; }
+.activity.is-active { color: var(--stream); }
+.activity.is-active i { opacity: 1; transform: scale(1.05); }
+.activity.is-alert { color: var(--danger); }
+.activity.is-alert i { opacity: 1; }
+.activity.is-off { color: var(--subtle); }
+
+.bufferHero { padding: 20px 1px 16px; }
+.heroLabel { display: block; margin-bottom: 4px; color: var(--muted); font-size: 11px; font-weight: 580; }
+.heroValue { display: flex; align-items: baseline; gap: 4px; }
+.heroValue b { font-size: 38px; line-height: .98; font-weight: 700; letter-spacing: -1.4px; font-variant-numeric: tabular-nums; }
+.heroValue span { font-size: 13px; font-weight: 580; color: var(--subtle); }
+
+.statusCard, .controlCard { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: clip; }
+.statusRow { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 39px; padding: 0 12px; font-size: 12px; }
+.statusRow + .statusRow { border-top: 1px solid color-mix(in srgb, CanvasText 7%, transparent); }
+.statusRow span { color: var(--muted); }
+.statusRow b { max-width: 176px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: right; font-weight: 650; }
+
+.controlCard { margin-top: 10px; padding: 10px; }
+.controlLabel { margin: 0 2px 8px; color: var(--muted); font-size: 11px; font-weight: 580; }
+.segmented { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; padding: 2px; border: 1px solid var(--border); border-radius: 10px; overflow: clip; background: var(--surface-strong); }
+.segmented button { appearance: none; min-height: 31px; border: 0; border-radius: 8px; background: transparent; color: var(--muted); font: inherit; font-size: 11px; font-weight: 650; cursor: pointer; outline: none; transition: background .12s ease, color .12s ease; }
+.segmented button:hover { color: CanvasText; background: color-mix(in srgb, CanvasText 5%, transparent); }
+.segmented button.active { background: var(--accent); color: var(--accent-ink); }
+.segmented button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.settingsButton { width: 100%; margin-top: 9px; appearance: none; border: 0; border-radius: 10px; padding: 8px 10px; background: transparent; color: var(--muted); font: inherit; font-size: 11px; font-weight: 600; cursor: pointer; }
+.settingsButton:hover { background: var(--surface); color: CanvasText; }
+.settingsButton:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }

@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "1440, Please",
+  "version": "0.17.8",
+  "description": "Keeps YouTube stable at 1440p with a cautious or faster quality ramp.",
+  "permissions": [
+    "storage",
+    "scripting",
+    "webRequest",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://*.googlevideo.com/*",
+    "https://googlevideo.com/*",
+    "https://s.youtube.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "lib/core.js",
+      "lib/network-core.js",
+      "lib/scheduler-core.js",
+      "background/background.js"
+    ],
+    "type": "classic"
+  },
+  "action": {
+    "default_title": "1440, Please",
+    "default_popup": "popup/popup.html"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "lib/player-config-core.js",
+        "content/content-main.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "lib/core.js",
+        "content/content.js"
+      ],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-buffer-guardian@local.invalid",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+name: Focused feature request
+description: Suggest an improvement that supports stable 1440p playback in Firefox.
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: This project intentionally stays narrow. General YouTube enhancement features are out of scope.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Playback problem
+      description: What 1440p stability problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / observed behavior
+      description: Describe the Firefox/YouTube behavior that motivates the request.

@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Test
+        run: node tools/test-all.mjs
+
+      - name: Build release artifacts
+        run: python3 tools/build-release.py
+
+      - name: Upload unsigned build artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: 1440-please-${{ github.sha }}
+          path: |
+            dist/*.xpi
+            dist/*-source.zip
+            dist/SHA256SUMS.txt
+          if-no-files-found: error

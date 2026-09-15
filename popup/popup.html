@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>1440, Please</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brandMark" aria-hidden="true"></span>
+        <div class="brandCopy">
+          <strong>1440, Please</strong>
+          <span>Keeps YouTube stable at 1440p.</span>
+        </div>
+      </div>
+      <div id="liveState" class="activity is-idle" aria-live="polite">
+        <i aria-hidden="true"></i><span>Idle</span>
+      </div>
+    </header>
+
+    <section class="bufferHero" aria-label="Buffer health">
+      <span class="heroLabel">Buffer</span>
+      <div class="heroValue"><b id="effective">—</b><span>s</span></div>
+    </section>
+
+    <section class="statusCard" aria-label="Playback status">
+      <div class="statusRow"><span>Quality</span><b id="quality">—</b></div>
+      <div class="statusRow"><span>Stage</span><b id="stage">—</b></div>
+    </section>
+
+    <section class="controlCard" aria-label="Ramp speed">
+      <div class="controlLabel">Ramp speed</div>
+      <div class="segmented" role="group" aria-label="Ramp speed">
+        <button type="button" data-ramp="defensive">Defensive</button>
+        <button type="button" data-ramp="aggressive">Aggressive</button>
+      </div>
+    </section>
+
+    <button id="options" class="settingsButton" type="button">Settings</button>
+  </main>
+  <script src="../lib/core.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

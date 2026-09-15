@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>1440, Please settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brandLine"><span class="brandMark" aria-hidden="true"></span><h1>1440, Please</h1></div>
+      <p>Keeps YouTube stable at 1440p.</p>
+    </header>
+
+    <section class="settingsCard" aria-label="Settings">
+      <label class="settingRow" for="enabled">
+        <div><strong>Enabled</strong><span>Stabilize supported YouTube videos.</span></div>
+        <span class="switch"><input id="enabled" type="checkbox"><i aria-hidden="true"></i></span>
+      </label>
+
+      <div class="settingRow rampRow">
+        <div><strong>Ramp speed</strong><span>Defensive waits longer. Aggressive promotes sooner.</span></div>
+        <div class="segmented" role="group" aria-label="Ramp speed">
+          <button type="button" data-ramp="defensive">Defensive</button>
+          <button type="button" data-ramp="aggressive">Aggressive</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer"><span id="status" aria-live="polite">Changes save automatically.</span></div>
+  </main>
+  <script src="../lib/core.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

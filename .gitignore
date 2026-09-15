@@ -1,0 +1,22 @@
+# Release output
+dist/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Runtime/tool caches
+__pycache__/
+*.pyc
+node_modules/
+
+# Local signing secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12

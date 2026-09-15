@@ -1,0 +1,16 @@
+{
+  "name": "1440-please",
+  "version": "0.17.8",
+  "private": true,
+  "description": "Firefox extension that helps YouTube reach and hold stable 1440p playback.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node tools/test-all.mjs",
+    "check:release": "node tools/release-check.mjs",
+    "build": "python3 tools/build-release.py",
+    "verify": "node tools/release-check.mjs && node tools/test-all.mjs && python3 tools/build-release.py"
+  }
+}
